@@ -1,0 +1,24 @@
+#!/bin/bash
+
+apt-get -y --force-yes install git
+apt-get -y --force-yes install curl
+apt-get -y --force-yes install bison
+
+export PATH=/usr/local/ruby/bin:$PATH
+
+cd /usr/local/src
+wget --quiet http://releases.rubini.us/rubinius-2.2.1.tar.bz2
+tar jxf rubinius-2.2.1.tar.bz2
+cd /usr/local/src/rubinius-2.2.1
+curl -fsSL curl.haxx.se/ca/cacert.pem -o /usr/local/src/rubinius-2.2.1/lib/rubygems/ssl_certs/cert.pem
+bundle
+./configure --prefix=/usr/local/rubinius
+rake install
+rm /usr/local/src/rubinius-2.2.1.tar.bz2
+
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+echo "export LC_ALL=en_US.UTF-8" >> /etc/environment
+/usr/local/rubinius/bin/gem install bundler
+/usr/local/rubinius/bin/gem install rubysl-tracer

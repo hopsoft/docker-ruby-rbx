@@ -5,6 +5,7 @@ apt-get -y --force-yes install curl
 apt-get -y --force-yes install bison
 
 export PATH=/usr/local/ruby/bin:$PATH
+gem update --system
 
 cd /usr/local/src
 wget --quiet http://releases.rubini.us/rubinius-2.2.1.tar.bz2

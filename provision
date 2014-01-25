@@ -2,7 +2,8 @@
 set -e
 
 export DEBIAN_FRONTEND=noninteractive
+echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 apt-get -qq update
 apt-get -y --force-yes install curl
-curl http://get.docker.io | sh
-
+apt-get -y --force-yes install lxc-docker

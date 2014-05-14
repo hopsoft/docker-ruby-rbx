@@ -37,4 +37,3 @@ update-locale LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 echo "export LC_ALL=en_US.UTF-8" >> /etc/environment
 /usr/local/rubinius/bin/gem install bundler
-/usr/local/rubinius/bin/gem install rubysl-tracer

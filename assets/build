@@ -17,23 +17,24 @@ apt-get -y --force-yes install \
   libreadline-dev \
   libncurses5-dev
 
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+echo "export LC_ALL=en_US.UTF-8" >> /etc/environment
+
 export PATH=/usr/local/ruby/bin:$PATH
 /usr/local/ruby/bin/gem update --system
 
 cd /usr/local/src
-wget --quiet http://releases.rubini.us/rubinius-2.2.6.tar.bz2
-tar jxf rubinius-2.2.6.tar.bz2
-cd /usr/local/src/rubinius-2.2.6
-curl -fsSL curl.haxx.se/ca/cacert.pem -o /usr/local/src/rubinius-2.2.6/lib/rubygems/ssl_certs/cert.pem
+wget --quiet http://releases.rubini.us/rubinius-2.2.7.tar.bz2
+tar jxf rubinius-2.2.7.tar.bz2
+cd /usr/local/src/rubinius-2.2.7
+curl -fsSL curl.haxx.se/ca/cacert.pem -o /usr/local/src/rubinius-2.2.7/lib/rubygems/ssl_certs/cert.pem
 
 /usr/local/ruby/bin/bundle
 
 ./configure --prefix=/usr/local/rubinius --libc=/usr/lib/x86_64-linux-gnu/libc
 /usr/local/ruby/bin/rake install
-rm /usr/local/src/rubinius-2.2.6.tar.bz2
+rm /usr/local/src/rubinius-2.2.7.tar.bz2
 
-locale-gen en_US.UTF-8
-update-locale LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-echo "export LC_ALL=en_US.UTF-8" >> /etc/environment
 /usr/local/rubinius/bin/gem install bundler

@@ -35,18 +35,17 @@ ENV LC_ALL en_US.UTF-8
 # download & install
 RUN gem install bundler
 WORKDIR /usr/local/src
-RUN wget --quiet http://releases.rubini.us/rubinius-2.3.0.tar.bz2 && \
-  tar jxf rubinius-2.3.0.tar.bz2
-WORKDIR /usr/local/src/rubinius-2.3.0
+RUN wget --quiet http://releases.rubini.us/rubinius-2.5.2.tar.bz2 && \
+  tar jxf rubinius-2.5.2.tar.bz2
+WORKDIR /usr/local/src/rubinius-2.5.2
 RUN curl -fsSL curl.haxx.se/ca/cacert.pem -o ./library/rubygems/ssl_certs/cacert.pem
 RUN bundle
 RUN ./configure --prefix=/usr/local/rbx --libc=/usr/lib/x86_64-linux-gnu/libc
-RUN rake build && \
-  rake install
+RUN rake install
 RUN /usr/local/rbx/bin/gem install --no-document bundler
 
 # cleanup
-RUN rm -rf /usr/local/src/rubinius-2.2.10.tar.bz2 && \
+RUN rm -rf /usr/local/src/rubinius-2.5.2.tar.bz2 && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /tmp/* && \
   rm -rf /var/tmp/*

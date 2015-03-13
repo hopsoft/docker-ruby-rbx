@@ -3,7 +3,7 @@
 ## Use the Trusted Image
 
 ```
-sudo docker run -i -t hopsoft/ruby-rbx bash
+sudo docker run -i -t hopsoft/ruby-rbx:2.5.2 bash
 ruby -v
 ```
 

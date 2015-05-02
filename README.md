@@ -26,3 +26,4 @@ sudo docker build -t hopsoft/ruby-rbx /vagrant
 ```
 
 Once the build finishes, you can [use the image](#use-the-trusted-image).
+

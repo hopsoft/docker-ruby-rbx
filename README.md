@@ -1,3 +1,6 @@
+[![Docker Hub](http://img.shields.io/badge/docker-hub-brightgreen.svg?style=flat)](https://registry.hub.docker.com/u/hopsoft/ruby-rbx/)
+[![Gratipay](http://img.shields.io/badge/gratipay-contribute-009bef.svg?style=flat)](https://gratipay.com/hopsoft/)
+
 # Trusted Docker Image for Rubinius Ruby
 
 ## Use the Trusted Image
